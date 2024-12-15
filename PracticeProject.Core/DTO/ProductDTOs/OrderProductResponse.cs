@@ -1,22 +1,18 @@
 ﻿using PracticeProject.Core.Domain.Entities;
-using PracticeProject.Core.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PracticeProject.Core.DTO.ProductDTOs
 {
-    public class ProductResponse
+    public class OrderProductResponse
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public int? StockQuantity { get; set; }
-        public string? Category { get; set; }
 
         public override bool Equals(object? obj)
         {
@@ -41,17 +37,16 @@ namespace PracticeProject.Core.DTO.ProductDTOs
 
     public static partial class ProductExtensions
     {
-        public static ProductResponse ToProductResponse(this Product product)
+        public static OrderProductResponse ToOrderProductResponse(this Product product)
         {
-            return new ProductResponse
+            return new OrderProductResponse
             {
                 Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
                 Price = product.Price,
-                StockQuantity = product.StockQuantity,
-                Category = product.Category,
             };
         }
     }
 }
+

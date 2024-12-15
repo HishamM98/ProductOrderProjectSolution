@@ -12,6 +12,8 @@ namespace PracticeProject.Core.Domain.IdentityEntities
     public class User : IdentityUser<Guid>
     {
         public string FullName { get; set; } = string.Empty;
-        public string Address { get; set; } = string.Empty; 
+        public string Address { get; set; } = string.Empty;
+        public string RefreshToken { get; set; } = string.Empty;
+        public DateTime RefreshTokenExpirationDateTime { get; set; }
     }
 }

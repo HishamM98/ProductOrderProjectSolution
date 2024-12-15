@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PracticeProject.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:PracticeProject.WebAPI.Configuration.ConfigureSwaggerOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Configuration.ConfigureSwaggerOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:PracticeProject.WebAPI.Controllers.v1.AccountsController">
+            <summary>
+            Account Controller to handle different account endpoints
+            </summary>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="jwtService"></param>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.AccountsController.#ctor(Microsoft.AspNetCore.Identity.UserManager{PracticeProject.Core.Domain.IdentityEntities.User},Microsoft.AspNetCore.Identity.SignInManager{PracticeProject.Core.Domain.IdentityEntities.User},PracticeProject.Core.ServiceContracts.IJwtService)">
+            <summary>
+            Account Controller to handle different account endpoints
+            </summary>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="jwtService"></param>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.AccountsController.Login(PracticeProject.Core.DTO.AccountDTOs.LoginRequest)">
+            <summary>
+            Logs the user in using email and password
+            </summary>
+            <param name="login">login request that includes user's email and password</param>
+            <returns>authentication response including user's jwt token</returns>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.AccountsController.Register(PracticeProject.Core.DTO.AccountDTOs.RegisterRequest)">
+            <summary>
+            Registers new user
+            </summary>
+            <param name="register">register request that includes user's data</param>
+            <returns>authentication response including user's jwt token</returns>
+        </member>
+        <member name="T:PracticeProject.WebAPI.Controllers.v1.OrdersController">
+            <summary>
+            Orders Controller that handles order's endpoints
+            </summary>
+            <param name="orderService"></param>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.OrdersController.#ctor(PracticeProject.Core.ServiceContracts.IOrdersService)">
+            <summary>
+            Orders Controller that handles order's endpoints
+            </summary>
+            <param name="orderService"></param>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.OrdersController.GetOrderById(System.Guid)">
+            <summary>
+            Get Order by its ID
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.OrdersController.GetAllOrders(PracticeProject.Core.Helpers.OrdersQuery)">
+            <summary>
+            Get all user's orders
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.OrdersController.PostOrder(PracticeProject.Core.DTO.OrderDTOs.OrderAddRequest)">
+            <summary>
+            Create new order including order items
+            </summary>
+            <param name="orderAddRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.OrdersController.PutOrder(System.Guid,PracticeProject.Core.DTO.OrderDTOs.OrderUpdateRequest)">
+            <summary>
+            update order data
+            </summary>
+            <param name="orderId"></param>
+            <param name="orderUpdateRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.OrdersController.DeleteOrder(System.Guid)">
+            <summary>
+            Cancel order using its ID
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PracticeProject.WebAPI.Controllers.v1.ProductsController">
+            <summary>
+            Product Controller that handles product's endpoints
+            </summary>
+            <param name="productsService"></param>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.ProductsController.#ctor(PracticeProject.Core.ServiceContracts.IProductsService)">
+            <summary>
+            Product Controller that handles product's endpoints
+            </summary>
+            <param name="productsService"></param>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.ProductsController.GetProducts(PracticeProject.Core.Helpers.ProductsQuery)">
+            <summary>
+            Get all Products that match query filters and allows pagination and sorting
+            </summary>
+            <param name="query">query filters that filters using category and price and supports pagination and sorting</param>
+            <returns></returns>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.ProductsController.GetProduct(System.Guid)">
+            <summary>
+            Get product by its ID
+            </summary>
+            <param name="id">Product's ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.ProductsController.PutProduct(System.Guid,PracticeProject.Core.DTO.ProductDTOs.ProductUpdateRequest)">
+            <summary>
+            Update product's details
+            </summary>
+            <param name="id">Product's ID</param>
+            <param name="productUpdateRequest">Updated Product's Data</param>
+            <returns></returns>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.ProductsController.PostProduct(PracticeProject.Core.DTO.ProductDTOs.ProductAddRequest)">
+            <summary>
+            Add new product
+            </summary>
+            <param name="productAddrequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PracticeProject.WebAPI.Controllers.v1.ProductsController.DeleteProduct(System.Guid)">
+            <summary>
+            Remove product using its ID
+            </summary>
+            <param name="id">Prdouct's ID</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

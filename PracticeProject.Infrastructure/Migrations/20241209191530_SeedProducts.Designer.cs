@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PracticeProject.Infrastructure.DbContext;
 
@@ -11,9 +12,11 @@ using PracticeProject.Infrastructure.DbContext;
 namespace PracticeProject.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241209191530_SeedProducts")]
+    partial class SeedProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,7 +160,7 @@ namespace PracticeProject.Infrastructure.Migrations
                     b.Property<Guid?>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ProductId")
+                    b.Property<Guid?>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Quantity")
@@ -1219,13 +1222,13 @@ namespace PracticeProject.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5dbe5ec6-0c03-437b-ba60-d507711ef09e"),
+                            Id = new Guid("0087babb-8f36-4ec5-900d-f0d8573edb73"),
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = new Guid("4d5dc6f5-7358-4b9f-8118-5966bebdc294"),
+                            Id = new Guid("98d22460-ae55-464e-aa50-34e4d412cf6b"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -1299,9 +1302,7 @@ namespace PracticeProject.Infrastructure.Migrations
 
                     b.HasOne("PracticeProject.Core.Domain.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Order");
 

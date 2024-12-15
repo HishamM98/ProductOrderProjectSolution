@@ -13,20 +13,14 @@ namespace PracticeProject.Core.DTO.OrderItemDTOs
         [Required]
         public Guid ProductId { get; set; }
         [Required]
-        public Guid OrderId { get; set; }
-        [Required]
         public int Quantity { get; set; }
-        [Required]
-        public decimal UnitPrice { get; set; }
 
         public OrderItem ToOrderItem()
         {
             return new OrderItem
             {
                 ProductId = ProductId,
-                OrderId = OrderId,
                 Quantity = Quantity,
-                UnitPrice = UnitPrice
             };
         }
     }

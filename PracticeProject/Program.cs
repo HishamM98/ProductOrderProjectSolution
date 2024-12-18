@@ -58,7 +58,8 @@ builder.Host.UseSerilog((context, services, loggerConfiguration) =>
     .ReadFrom.Services(services);
 });
 
-builder.Services.AddHttpLogging(config => {
+builder.Services.AddHttpLogging(config =>
+{
     config.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.RequestMethod | Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.RequestPath | Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.ResponseStatusCode;
 });
 
@@ -119,7 +120,7 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["JWT:Audience"],
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"]??""))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"] ?? ""))
     };
 
     options.Events = new JwtBearerEvents
@@ -164,3 +165,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

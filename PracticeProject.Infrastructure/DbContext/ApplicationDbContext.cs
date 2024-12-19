@@ -30,7 +30,7 @@ namespace PracticeProject.Infrastructure.DbContext
             builder.Entity<Order>().ToTable("Orders");
             builder.Entity<OrderItem>().ToTable("OrderItems");
 
-            var products = ReadUsersFromCsv("E:\\Dev\\AspNetCore\\PracticeProjectSolution\\PracticeProject.Infrastructure\\DbContext\\Data\\Products.csv");
+            var products = ReadProductsFromCsv("E:\\Dev\\AspNetCore\\PracticeProjectSolution\\PracticeProject.Infrastructure\\DbContext\\Data\\Products.csv");
             builder.Entity<Product>().HasData(products);
 
             var roles = new List<UserRole>
@@ -41,7 +41,7 @@ namespace PracticeProject.Infrastructure.DbContext
             builder.Entity<UserRole>().HasData(roles);
         }
 
-        private List<Product> ReadUsersFromCsv(string filePath)
+        private List<Product> ReadProductsFromCsv(string filePath)
         {
             using var reader = new StreamReader(filePath);
             using var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture));
